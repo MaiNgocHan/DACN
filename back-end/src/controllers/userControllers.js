@@ -18,6 +18,32 @@ const userControllers ={
             res.status(500).json(error);
         }
     },
+    findOneUser: async(req,res)=>{
+        try{
+            const Oneuser = await User.findById(req.params.id);         
+            res.status(200).json(Oneuser);
+        }catch(error){
+            res.status(500).json(error);
+        }
+    },
+
+    putUpdateUser: async(req,res) => {
+        let email = req.body.email;
+        let username = req.body.username;
+        let userID = req.params.id;
+    
+        let updateUser = await User.findByIdAndUpdate({_id: userID}, { email: email, username: username}, { new: true })
+        if(userID === undefined){
+            res.status(500).send('Không tìm thấy người dùng');
+        } else{
+            res.status(200).json({
+                errCode: 0,
+                data: updateUser,
+            }) 
+        }
+    },
+
+
     changeStatus: async(req,res)=>{
             const changing =  await User.findById(req.params.id)
             await User.findByIdAndUpdate(req.params.id,{statusType: !changing.statusType  },(error,user ) =>{
