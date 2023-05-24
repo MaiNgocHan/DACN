@@ -1,0 +1,24 @@
+.navbar {
+    background-color: #ff8fab;
+    box-shadow: 0 4px 2px -2px #cdb4db;
+}
+.logo {
+    width: 15%;
+    height: auto;
+}
+.button {
+    text-decoration: none;
+    color: white;
+    font-size: 19px;
+    padding: 10px 17px;
+    border-radius: 10px;
+    margin-left: 30px;
+}
+.button:hover {
+    background-color: #ffafcc;
+    color: white;
+}
+.dropdown-toggle::after {
+    display: none;
+}
+

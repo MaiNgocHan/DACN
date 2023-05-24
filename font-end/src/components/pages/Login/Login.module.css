@@ -1,0 +1,88 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.background_image {
+  background-image: url('../../assets/image/meooo.jpg');
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: -1;
+}
+.auth {
+  background-color: rgba(255, 255, 255, 0.8);
+  margin: 3rem auto;
+  width: 25vw;
+  padding: 3rem 1rem;
+  text-align: center;
+  border-radius: 10px;
+  border: 3px solid white;
+}
+
+.title {
+  color: #a2d2ff;
+}
+
+.actions {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.actions .button {
+  background-color: #a2d2ff;
+  padding: 15px 20px;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  margin-left: auto;
+  border: none;
+}
+.actions .button:hover {
+  background-color: #bde0fe;
+}
+
+.actions .button_regis {
+  background-color: #ffafcc;
+  font-size: 14px;
+  padding: 15px 20px;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+.actions .button_regis:hover {
+  background-color: #ffc8dd;
+}
+
+.control {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.control label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #a2d2ff;
+  text-align: left;
+}
+
+.control input {
+  width: 92%;
+  background-color: #a2d2ff;
+  color: #38015c;
+  border-radius: 4px;
+  border: 1px solid white;
+  text-align: left;
+  padding: 10px 15px;
+  font-size: 14px;
+}
+
+.error {
+  color: red !important;
+}

@@ -1,0 +1,10 @@
+.footer {
+    background-color: #ff8fab;
+    padding: 20px 0;
+    color: white;
+    text-align: center;
+}
+.navbar {
+    background-color: #ff8fab;
+    box-shadow: 0 4px 2px -2px #cdb4db;
+}

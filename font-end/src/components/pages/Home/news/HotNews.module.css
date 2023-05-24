@@ -1,0 +1,15 @@
+.container {
+    padding: 10px 20px;
+    border: 7px solid #bde0fe;
+    border-radius: 10px;
+}
+.word_wrap {
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* number of lines to show */
+            line-clamp: 4; 
+    -webkit-box-orient: vertical;
+    margin-top: 8px;
+}
