@@ -9,7 +9,7 @@ import Home from "./components/pages/Home/Home";
 import Admin from './components/pages/admin/Admin';
 import AccountManagement from './components/pages/admin/AccountManagement';
 import NewsDetail from './components/pages/Home/newsDetail/NewsDetail';
-
+import Quiz from './components/pages/Quiz/Quiz';
 
 import { getNews } from './api/newsApi';
 
@@ -39,6 +39,7 @@ function App() {
           <Route path="/" element={<Login/>}/>
           <Route path="/register" element={<Register/>}/> 
           <Route path='/home' element={ <Home/>}/>
+          <Route path='/quiz' element={ <Quiz/>}/>
           <Route path='/admin/news' element={isLogin ? <Admin/> : <Navigate to='/'/>}/>
           <Route path='/admin/users' element={isLogin ? <AccountManagement/> : <Navigate to='/'/>}/>
           

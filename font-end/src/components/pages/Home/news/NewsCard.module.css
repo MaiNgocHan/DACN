@@ -11,12 +11,12 @@
     border-radius: 10px;
     margin: 15px 0;
 }
-.pink {
-    border: 3px solid #ffafcc;
+.green {
+    border: 3px solid #6a994e;
 }
-.pink:hover{
-    border: 3px solid #fad7e4;
-    filter: drop-shadow(0 0 0.75rem #ffafcc);
+.green:hover{
+    border: 3px solid #a7c957;
+    filter: drop-shadow(0 0 0.75rem #6a994e);
 }
 .blue {
     border: 3px solid #bde0fe;

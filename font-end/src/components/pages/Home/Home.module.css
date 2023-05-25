@@ -9,3 +9,18 @@
 .color_blue {
     color: #a2d2ff;
 }
+.color_green{
+    color: #6a994e;
+}
+.nav_link_text {
+    color: #386641;
+    font-size: 21px;
+    font-weight: 200;
+}
+.nav_link_text:hover {
+    color: #a7c957;
+}
+.background_tab {
+    padding: 1px 20px;
+    background-color: #f8f9fa;
+}

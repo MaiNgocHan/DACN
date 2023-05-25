@@ -7,12 +7,13 @@ import classes from './Header.module.css';
 import { logout } from "../../api/userApi";
 
 const Header = (props) => {
+  const token = localStorage.getItem('access-token');
   const userInfo = JSON.parse(localStorage.getItem('user'));
   const navigate = useNavigate();
 
   const logOutHandler = async () => {
     try {
-      await logout(userInfo.token);
+      await logout(token);
       localStorage.clear();
       navigate('/');
     } catch (error) {
@@ -48,15 +49,15 @@ const Header = (props) => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link href="/home" className={classes.button}>Tin Tức</Nav.Link>
-              <Nav.Link href="/forum" className={classes.button}>Diễn đàn</Nav.Link>
+              <Nav.Link href="/quiz" className={classes.button}>Quiz</Nav.Link>
             </Nav>
             <Nav>
               <Dropdown as={NavItem}>
-                <Dropdown.Toggle as={NavLink} className="text-white">{userInfo.username}</Dropdown.Toggle>
-                <Dropdown.Menu variant="light" key="down-centered">
-                  <Dropdown.Item href="#action/3.1">Thông tin tài khoản</Dropdown.Item>
-                  {userInfo.type === "admin" && <Dropdown.Item href="/admin/news">Quản lý bài viết</Dropdown.Item>}
-                  <Dropdown.Item onClick={logOutHandler}>Đăng xuất</Dropdown.Item>
+                <Dropdown.Toggle as={NavLink} className="text-black">{userInfo.username}</Dropdown.Toggle>
+                <Dropdown.Menu variant="light" key="down-centered" >
+                  <Dropdown.Item href="#action/3.1" >Thông tin tài khoản</Dropdown.Item>
+                  {userInfo.type === "admin" && <Dropdown.Item href="/admin/news" >Quản lý bài viết</Dropdown.Item>}
+                  <Dropdown.Item onClick={logOutHandler} >Đăng xuất</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </Nav>
