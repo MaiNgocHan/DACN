@@ -2,7 +2,7 @@ import { useState } from "react";
 import { quizMockData } from "../../dummyData/dummyData";
 import Layout from "../../layout/Layout";
 
-const QuizTemplate = () => {
+const QuizTemplate = (props) => {
     const {checkList, setCheckList} = useState(new Array(quizMockData[0].length));
 
     const handleOptionChange = (questionIndex, event) => {

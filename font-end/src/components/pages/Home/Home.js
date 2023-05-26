@@ -30,7 +30,6 @@ const Home = () => {
             try {
                 const res = await getNews(token);
                 setNewsList(res.data);
-                console.log(res.data);
             } catch (error) {
                 console.log(error.message);
             }
@@ -41,7 +40,6 @@ const Home = () => {
             try {
                 const res = await getMathNews(token);
                 setMathNews(res.data);
-                console.log(res.data);
             } catch (error) {
                 console.log(error.message);
             }
@@ -52,7 +50,6 @@ const Home = () => {
             try {
                 const res = await getLiterNews(token);
                 setLiterNews(res.data);
-                console.log(res.data);
             } catch (error) {
                 console.log(error.message);
             }
@@ -63,7 +60,6 @@ const Home = () => {
             try {
                 const res = await getEnglishNews(token);
                 setEnglishNews(res.data);
-                console.log(res.data);
             } catch (error) {
                 console.log(error.message);
             }
@@ -74,7 +70,6 @@ const Home = () => {
             try {
                 const res = await getOtherhNews(token);
                 setOtherhNews(res.data);
-                console.log(res.data);
             } catch (error) {
                 console.log(error.message);
             }

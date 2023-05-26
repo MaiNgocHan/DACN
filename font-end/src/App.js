@@ -28,11 +28,11 @@ function App() {
         try {
             const res = await getNews(token);
             setNewsList(res.data);
-            console.log(res.data);
         } catch (error) {
             console.log(error.message);
         }
     };
+    getNewsList();
 }, [])
 
   
@@ -48,8 +48,13 @@ function App() {
           
           {/* <Route path="/news/:id" element={<NewsDetail/>} /> */}
           {newsList.map((news, index) => 
-            <Route key={index} path={`/news/:_id`} element={ 
+            <Route key={index} path={`/news/${news._id}`} element={ 
               isLogin ? <NewsDetail news={news} /> : <Navigate to='/'/>
+            }></Route>
+          )}
+          {quizMockData.map((quiz, index) => 
+            <Route key={index} path={`/quiz/${quiz._id}`} element={ 
+              isLogin ? <QuizTemplate /> : <Navigate to='/'/>
             }></Route>
           )}
         </Routes>

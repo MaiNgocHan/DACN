@@ -5,7 +5,7 @@ import classes from "./Quiz.module.css";
 const Quiz = () => {
     return (
         <Layout>
-        <h1 class={`mt-4 px-4 ${classes.color_green}`}>Danh sách Quiz</h1>
+        <h1 className={`mt-4 px-4 ${classes.color_green}`}>Danh sách Quiz</h1>
             <div className="row px-4">
                 {quizMockData.map((quiz, index) => (
                     <div key={index} className="col-3">
