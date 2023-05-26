@@ -1,7 +1,9 @@
 .container {
     padding-top: 87px;
     background-color: rgb(255, 255, 255);
+    min-height: 100vh;
 }
 .container1 {
    background-color: rgba(230, 230, 230, 0.303);
+   min-height: 100vh;
 }

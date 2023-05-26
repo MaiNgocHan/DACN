@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import classes from './Home.module.css';
-import NewsCard from './news/NewsCard';
+import NewsCard from '../../common/NewsCard';
 import MyPagination from "../../common/MyPagination";
 
 import chaomung from '../../assets/image/banner.png';
@@ -51,10 +51,10 @@ const Home = () => {
                     <h1 className={classes.color_green + " mt-3"}>Môn Toán</h1>
                     <div className="row">
                         {/* {newsList.slice(0,8).map((item, index) => { */}
-                        {newsList.slice((page - 1) * 8, (page - 1) * 8 + 8).map((item, index) => {
+                        {newsList.slice((page - 1) * 8, (page - 1) * 8 + 8).map((news, index) => {
                             return (
                                 <div key={index} className="col-3">
-                                    <NewsCard news={item} color="green" />
+                                    <NewsCard type='news' item={news} color="green" />
                                 </div>
                             );
                         })}
@@ -75,10 +75,10 @@ const Home = () => {
                     <h1 className={classes.color_green + " mt-3"}>Môn Văn</h1>
                     <div className="row">
                         {/* {newsList.slice(0,8).map((item, index) => { */}
-                        {newsList.slice((page - 1) * 8, (page - 1) * 8 + 8).map((item, index) => {
+                        {newsList.slice((page - 1) * 8, (page - 1) * 8 + 8).map((news, index) => {
                             return (
                                 <div key={index} className="col-3">
-                                    <NewsCard news={item} color="green" />
+                                    <NewsCard type='news' item={news} color="green" />
                                 </div>
                             );
                         })}
@@ -99,10 +99,10 @@ const Home = () => {
                     <h1 className={classes.color_green + " mt-3"}>Môn Anh</h1>
                     <div className="row">
                         {/* {newsList.slice(0,8).map((item, index) => { */}
-                        {newsList.slice((page - 1) * 8, (page - 1) * 8 + 8).map((item, index) => {
+                        {newsList.slice((page - 1) * 8, (page - 1) * 8 + 8).map((news, index) => {
                             return (
                                 <div key={index} className="col-3">
-                                    <NewsCard news={item} color="green" />
+                                    <NewsCard type='news' item={news} color="green" />
                                 </div>
                             );
                         })}

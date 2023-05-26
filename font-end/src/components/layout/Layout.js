@@ -14,6 +14,7 @@ const Layout = ({ props, children }) => {
   return (
     <div>
       <Header type={props?.type}/>
+
       <div className={classes.container1}>
         <Container className={classes.container}>
           {(props?.type === 'detail') && <Button className="my-3" variant="success" onClick={handlerBack}> Quay lại</Button>}
@@ -21,7 +22,7 @@ const Layout = ({ props, children }) => {
         </Container>
       </div>
       
-      {!(props?.type === 'admin') && <Footer />}
+      {!(props?.footer === false) && !(props?.type === 'admin') && <Footer />}
     </div>
   );
 };
