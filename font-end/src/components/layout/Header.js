@@ -49,7 +49,8 @@ const Header = (props) => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link href="/home" className={classes.button}>Tin Tức</Nav.Link>
-              <Nav.Link href="/quiz" className={classes.button}>Quiz</Nav.Link>
+              <Nav.Link href="/quiz" className={classes.button}>Trắc nghiệm</Nav.Link>
+              <Nav.Link href="/room" className={classes.button}>Phòng họp</Nav.Link>
             </Nav>
             <Nav>
               <Dropdown as={NavItem}>

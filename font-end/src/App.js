@@ -10,6 +10,7 @@ import Admin from './components/pages/admin/Admin';
 import AccountManagement from './components/pages/admin/AccountManagement';
 import NewsDetail from './components/pages/Home/newsDetail/NewsDetail';
 import Quiz from './components/pages/Quiz/Quiz';
+import Room from './components/pages/Room/Room';
 
 import { getNews } from './api/newsApi';
 
@@ -43,6 +44,7 @@ function App() {
           <Route path="/register" element={<Register/>}/> 
           <Route path='/home' element={ <Home/>}/>
           <Route path='/quiz' element={ <Quiz/>}/>
+          <Route path='/room' element={ <Room/>}/>
           <Route path='/admin/news' element={isLogin ? <Admin/> : <Navigate to='/'/>}/>
           <Route path='/admin/users' element={isLogin ? <AccountManagement/> : <Navigate to='/'/>}/>
           
