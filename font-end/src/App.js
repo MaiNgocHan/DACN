@@ -12,6 +12,7 @@ import NewsDetail from './components/pages/Home/newsDetail/NewsDetail';
 import Quiz from './components/pages/Quiz/Quiz';
 
 import { getNews } from './api/newsApi';
+
 import { quizMockData } from './components/dummyData/dummyData';
 import QuizTemplate from './components/pages/Quiz/QuizTemplate';
 
@@ -32,9 +33,9 @@ function App() {
             console.log(error.message);
         }
     };
-    getNewsList();
 }, [])
 
+  
   return (
     <Router className = "app">
         <Routes>
@@ -51,11 +52,6 @@ function App() {
               isLogin ? <NewsDetail news={news} /> : <Navigate to='/'/>
             }></Route>
           )}
-          {quizMockData.map((quiz, index) => (
-            <Route key={index} path={`/quiz/:_id`} element={ 
-              isLogin ? <QuizTemplate /> : <Navigate to='/'/>
-            }></Route>
-          ))}
         </Routes>
     </Router>
   );
