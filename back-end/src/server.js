@@ -29,8 +29,11 @@ app.use('/v1/user',userRoutes);
 const newRoutes = require('./routes/news.js')
 app.use('/v1/news',newRoutes);
 
+// const mailRoutes = require('./routes/mail.js')
+// app.use('/mail', mailRoutes);
 
-
+const mailRoutes = require('./routes/mail.js')
+app.use('/v1/mail', mailRoutes);
 //connection
 const connection = require ("../src/config/database");
 connection();

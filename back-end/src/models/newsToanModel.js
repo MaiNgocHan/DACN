@@ -16,12 +16,11 @@ const newsSchema = new mongoose.Schema({
         default: "", 
         require: true,
     },
-    
     type:{
         type: String,
-        default: "", 
+        default: "Toan", 
         require: true,
     },
 },{timestamps:true});
 
-module.exports = mongoose.model("New",newsSchema);
+module.exports = mongoose.model("NewsToan",newsSchema);
