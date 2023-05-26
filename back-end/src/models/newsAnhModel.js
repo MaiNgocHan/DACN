@@ -16,12 +16,11 @@ const newsSchema = new mongoose.Schema({
         default: "", 
         require: true,
     },
-    
     type:{
         type: String,
-        default: "", 
+        default: "Anh", 
         require: true,
     },
 },{timestamps:true});
 
-module.exports = mongoose.model("New",newsSchema);
+module.exports = mongoose.model("NewsAnh",newsSchema);
