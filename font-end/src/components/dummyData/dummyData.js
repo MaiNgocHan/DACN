@@ -52,11 +52,11 @@ export const quizMockData = [
         title: 'Đề kiểm tra ngữ văn phần 1',
         content: 'Đây là đề kiểm tra kiến thức học sinh sau những bài học trên lớp',
         questions: [
-            { question: 'Con nao nho nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 0}, { content: 'con heo', value: 1}, { content: 'con luon', value: 2}, { content: 'con chuot', value: 3}]},
-            { question: 'Con nao nho nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 0}, { content: 'con heo', value: 1}, { content: 'con luon', value: 2}, { content: 'con chuot', value: 3}]},
-            { question: 'Con nao nho nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 0}, { content: 'con heo', value: 1}, { content: 'con luon', value: 2}, { content: 'con chuot', value: 3}]},
-            { question: 'Con nao nho nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 0}, { content: 'con heo', value: 1}, { content: 'con luon', value: 2}, { content: 'con chuot', value: 3}]},
-            { question: 'Con nao nho nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 0}, { content: 'con heo', value: 1}, { content: 'con luon', value: 2}, { content: 'con chuot', value: 3}]},
+            { question: 'Con nao nho nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 'a'}, { content: 'con heo', value: 'b'}, { content: 'con luon', value: 'c'}, { content: 'con chuot', value: 'd'}]},
+            { question: 'Con nao nho nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 'a'}, { content: 'con heo', value: 'b'}, { content: 'con luon', value: 'c'}, { content: 'con chuot', value: 'd'}]},
+            { question: 'Con nao nho nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 'a'}, { content: 'con heo', value: 'b'}, { content: 'con luon', value: 'c'}, { content: 'con chuot', value: 'd'}]},
+            { question: 'Con nao nho nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 'a'}, { content: 'con heo', value: 'b'}, { content: 'con luon', value: 'c'}, { content: 'con chuot', value: 'd'}]},
+            { question: 'Con nao nho nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 'a'}, { content: 'con heo', value: 'b'}, { content: 'con luon', value: 'c'}, { content: 'con chuot', value: 'd'}]},
         ],
     },
     {
@@ -65,11 +65,11 @@ export const quizMockData = [
         title: 'Đề kiểm tra ngữ văn phần 2',
         content: 'Đây là đề kiểm tra kiến thức học sinh sau những bài học trên lớp',
         questions: [
-            { question: 'Con nao nang ky nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 0}, { content: 'con heo', value: 1}, { content: 'con luon', value: 2}, { content: 'con chuot', value: 3}]},
-            { question: 'Con nao nang ky nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 0}, { content: 'con heo', value: 1}, { content: 'con luon', value: 2}, { content: 'con chuot', value: 3}]},
-            { question: 'Con nao nang ky nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 0}, { content: 'con heo', value: 1}, { content: 'con luon', value: 2}, { content: 'con chuot', value: 3}]},
-            { question: 'Con nao nang ky nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 0}, { content: 'con heo', value: 1}, { content: 'con luon', value: 2}, { content: 'con chuot', value: 3}]},
-            { question: 'Con nao nang ky nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 0}, { content: 'con heo', value: 1}, { content: 'con luon', value: 2}, { content: 'con chuot', value: 3}]},
+            { question: 'Con nao nang ky nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 'a'}, { content: 'con heo', value: 'b'}, { content: 'con luon', value: 'c'}, { content: 'con chuot', value: 'd'}]},
+            { question: 'Con nao nang ky nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 'a'}, { content: 'con heo', value: 'b'}, { content: 'con luon', value: 'c'}, { content: 'con chuot', value: 'd'}]},
+            { question: 'Con nao nang ky nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 'a'}, { content: 'con heo', value: 'b'}, { content: 'con luon', value: 'c'}, { content: 'con chuot', value: 'd'}]},
+            { question: 'Con nao nang ky nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 'a'}, { content: 'con heo', value: 'b'}, { content: 'con luon', value: 'c'}, { content: 'con chuot', value: 'd'}]},
+            { question: 'Con nao nang ky nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 'a'}, { content: 'con heo', value: 'b'}, { content: 'con luon', value: 'c'}, { content: 'con chuot', value: 'd'}]},
         ],
         selectedOption: null,
         submitted: false,
@@ -80,11 +80,11 @@ export const quizMockData = [
         title: 'Đề kiểm tra ngữ văn phần 1',
         content: 'Đây là đề kiểm tra kiến thức học sinh sau những bài học trên lớp',
         questions: [
-            { question: 'Con nao nho nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 0}, { content: 'con heo', value: 1}, { content: 'con luon', value: 2}, { content: 'con chuot', value: 3}]},
-            { question: 'Con nao nho nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 0}, { content: 'con heo', value: 1}, { content: 'con luon', value: 2}, { content: 'con chuot', value: 3}]},
-            { question: 'Con nao nho nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 0}, { content: 'con heo', value: 1}, { content: 'con luon', value: 2}, { content: 'con chuot', value: 3}]},
-            { question: 'Con nao nho nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 0}, { content: 'con heo', value: 1}, { content: 'con luon', value: 2}, { content: 'con chuot', value: 3}]},
-            { question: 'Con nao nho nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 0}, { content: 'con heo', value: 1}, { content: 'con luon', value: 2}, { content: 'con chuot', value: 3}]},
+            { question: 'Con nao nho nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 'a'}, { content: 'con heo', value: 'b'}, { content: 'con luon', value: 'c'}, { content: 'con chuot', value: 'd'}]},
+            { question: 'Con nao nho nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 'a'}, { content: 'con heo', value: 'b'}, { content: 'con luon', value: 'c'}, { content: 'con chuot', value: 'd'}]},
+            { question: 'Con nao nho nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 'a'}, { content: 'con heo', value: 'b'}, { content: 'con luon', value: 'c'}, { content: 'con chuot', value: 'd'}]},
+            { question: 'Con nao nho nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 'a'}, { content: 'con heo', value: 'b'}, { content: 'con luon', value: 'c'}, { content: 'con chuot', value: 'd'}]},
+            { question: 'Con nao nho nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 'a'}, { content: 'con heo', value: 'b'}, { content: 'con luon', value: 'c'}, { content: 'con chuot', value: 'd'}]},
         ],
         selectedOption: null,
         submitted: false,
@@ -92,7 +92,7 @@ export const quizMockData = [
 ];
 
 export const resultMockData = [
-    [3, 3, 3, 3, 3],
-    [1, 1, 1, 1, 1],
-    [3, 3, 3, 3, 3],
+    ['d', 'd', 'd', 'd', 'd'],
+    ['b', 'b', 'b', 'b', 'b'],
+    ['d', 'd', 'd', 'd', 'd'],
 ];

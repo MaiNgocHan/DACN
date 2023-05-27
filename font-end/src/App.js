@@ -56,7 +56,7 @@ function App() {
           )}
           {quizMockData.map((quiz, index) => 
             <Route key={index} path={`/quiz/${quiz._id}`} element={ 
-              isLogin ? <QuizTemplate /> : <Navigate to='/'/>
+              isLogin ? <QuizTemplate id={quiz._id}/> : <Navigate to='/'/>
             }></Route>
           )}
         </Routes>
