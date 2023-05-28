@@ -58,6 +58,8 @@ export const quizMockData = [
             { question: 'Con nao nho nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 'a'}, { content: 'con heo', value: 'b'}, { content: 'con luon', value: 'c'}, { content: 'con chuot', value: 'd'}]},
             { question: 'Con nao nho nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 'a'}, { content: 'con heo', value: 'b'}, { content: 'con luon', value: 'c'}, { content: 'con chuot', value: 'd'}]},
         ],
+        results: ['d', 'd', 'd', 'd', 'd'],
+        testTime: 5,
     },
     {
         _id: '1',
@@ -71,8 +73,8 @@ export const quizMockData = [
             { question: 'Con nao nang ky nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 'a'}, { content: 'con heo', value: 'b'}, { content: 'con luon', value: 'c'}, { content: 'con chuot', value: 'd'}]},
             { question: 'Con nao nang ky nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 'a'}, { content: 'con heo', value: 'b'}, { content: 'con luon', value: 'c'}, { content: 'con chuot', value: 'd'}]},
         ],
-        selectedOption: null,
-        submitted: false,
+        results: ['b', 'b', 'b', 'b', 'b'],
+        testTime: 5,
     },
     {
         _id: '2',
@@ -86,13 +88,7 @@ export const quizMockData = [
             { question: 'Con nao nho nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 'a'}, { content: 'con heo', value: 'b'}, { content: 'con luon', value: 'c'}, { content: 'con chuot', value: 'd'}]},
             { question: 'Con nao nho nhat trong cac con vat nay ?', options: [{ content: 'con ga', value: 'a'}, { content: 'con heo', value: 'b'}, { content: 'con luon', value: 'c'}, { content: 'con chuot', value: 'd'}]},
         ],
-        selectedOption: null,
-        submitted: false,
+        results: ['d', 'd', 'd', 'd', 'd'],
+        testTime: 5,
     },
-];
-
-export const resultMockData = [
-    ['d', 'd', 'd', 'd', 'd'],
-    ['b', 'b', 'b', 'b', 'b'],
-    ['d', 'd', 'd', 'd', 'd'],
 ];

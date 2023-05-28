@@ -1,11 +1,14 @@
 import { useState } from "react";
-import { quizMockData, resultMockData } from "../../dummyData/dummyData";
+import { quizMockData } from "../../dummyData/dummyData";
 import Layout from "../../layout/Layout";
 import { Button, Modal } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import CountdownTimer from "../../common/CountdownTimer ";
+import classes from './QuizTemplate.module.css';
 
 const QuizTemplate = (props) => {
     const testQuestions = quizMockData.find(test => test._id === props.id);
+    const numberQuestions = testQuestions.questions.length;
     const [checkList, setCheckList] = useState([]);
     const navigate = useNavigate();
     const [correctResult, setCorrectResult] = useState(0);
@@ -19,12 +22,24 @@ const QuizTemplate = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         let newCorrectResult = 0;
-        for ( let i = 0; i < resultMockData.length; i++){
-            if(resultMockData[i] === checkList[i]){
+        for ( let i = 0; i < numberQuestions; i++){
+            if(testQuestions.results[i] === checkList[i]){
                 newCorrectResult++;
             }
         }
-        let newScoreResult = newCorrectResult / resultMockData.length * 10;
+        let newScoreResult = newCorrectResult / numberQuestions * 10;
+        setCorrectResult(newCorrectResult);
+        setScorceResult(newScoreResult);
+        setShowResult(true);
+    }
+    const timeUp = () => {
+        let newCorrectResult = 0;
+        for ( let i = 0; i < numberQuestions; i++){
+            if(testQuestions.results[i] === checkList[i]){
+                newCorrectResult++;
+            }
+        }
+        let newScoreResult = newCorrectResult / numberQuestions * 10;
         setCorrectResult(newCorrectResult);
         setScorceResult(newScoreResult);
         setShowResult(true);
@@ -40,6 +55,9 @@ const QuizTemplate = (props) => {
         <Layout props={{footer: false}}>
             <div className="my-3 px-5">
                 <h1> Bài kiểm tra</h1>
+                <div className={classes.countTime}>
+                    <CountdownTimer targetMinutes={1} timeUp={timeUp}/>
+                </div>
                 <h3>{testQuestions.title}</h3>
                 <h5 className="mb-5">{testQuestions.content}</h5>
                 <form onSubmit={handleSubmit}>
@@ -77,7 +95,7 @@ const QuizTemplate = (props) => {
                 </Modal.Header>
                 <Modal.Body>
                     <p>Đây là kết quả của bạn</p>
-                    <p>Số câu trả lời đúng: {correctResult}/{testQuestions.length}</p>
+                    <p>Số câu trả lời đúng: {correctResult}/{numberQuestions}</p>
                     <p>Điểm của bạn: {scoreResult}</p>
                 </Modal.Body>
                 <Modal.Footer>

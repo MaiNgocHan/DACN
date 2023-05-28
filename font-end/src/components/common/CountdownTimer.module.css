@@ -1,0 +1,8 @@
+.timeBox {
+    background-color: green;
+    color: white;
+    font-size: 21px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
