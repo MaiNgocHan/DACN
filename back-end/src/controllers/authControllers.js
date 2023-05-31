@@ -78,14 +78,22 @@ const authControllers = {
     },
     //LogOut
     logoutUser: async(req,res) =>{
-        const Deltoken  = req.headers.token;
-             await userModel.findOneAndUpdate({token: Deltoken}, {$set: {token: " "}},{new:true}, (error) => {
-                if(error){
-                    console.error(error);
-                }else{
-                    res.status(200).json("Đã thoát")
-                }
-            });  
+        // const Deltoken  = req.headers.token;
+        //      userModel.findOneAndUpdate({token: Deltoken}, {$set: {token: " "}},{new:true}, (error) => {
+        //         if(error){
+        //             console.error(error);
+        //         }else{
+        //             res.status(200).json("Đã thoát")
+        //         }
+        //     });  
+        try {
+            const Deltoken = req.headers.token;
+            await userModel.findOneAndUpdate({ token: Deltoken }, { $set: { token: " " } }, { new: true });
+            res.status(200).json("Đã thoát");
+          } catch (error) {
+            console.error(error);
+            res.status(500).json("Đã xảy ra lỗi trong quá trình logout");
+          }
     }
 }
 module.exports = authControllers;
