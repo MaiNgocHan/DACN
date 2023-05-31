@@ -46,16 +46,19 @@ const authControllers = {
         try {
             const email = await userModel.findOne({email: req.body.email});
             const user = await userModel.findOne({email: req.body.email});
-
-            if(!email){
-                res.status(404).json("Nhập sai email !");
-            }
             const validPassword = await bcrypt.compare(
                 req.body.password,
                 email.password
             );
+            const statusTypeA = email.statusType;
+            if(!email){
+                res.status(404).json("Nhập sai email !");
+            }
             if(!validPassword){
                 res.status(404).json("Nhập sai mật khẩu !");
+            }
+            if(statusTypeA === false){
+                return res.status(403).json("Tài khoản của bạn đã bị khóa !");
             }
                 if(email && validPassword){
                     const accessToken =  await authControllers.makeAccessToken(email);
@@ -69,7 +72,6 @@ const authControllers = {
                     });
                     res.status(200).json({user, accessToken});
                 }
-
         } catch (error) {
             res.status(500).json(error);
         }
@@ -77,7 +79,7 @@ const authControllers = {
     //LogOut
     logoutUser: async(req,res) =>{
         const Deltoken  = req.headers.token;
-            userModel.findOneAndUpdate({token: Deltoken}, {$set: {token: ""}},{new:true}, (error) => {
+             await userModel.findOneAndUpdate({token: Deltoken}, {$set: {token: " "}},{new:true}, (error) => {
                 if(error){
                     console.error(error);
                 }else{

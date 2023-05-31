@@ -27,7 +27,9 @@ const userSchema = new mongoose.Schema({
 
     statusType:{
         type: Boolean,
-        default: true, 
+        // default: true, 
+        default: "", 
+        require: true,
     },
     token:{
         type: String,

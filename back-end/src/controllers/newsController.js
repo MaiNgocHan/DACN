@@ -4,9 +4,6 @@ const userCollection = mongoose.model("User");
 // const userModel = require("../models/newsModel");
 const middlewareController = require("../middleware/middlewareControllers");
 
-const newsAnhModel = require("../models/newsAnhModel");
-const newsToanModel = require("../models/newsToanModel");
-const newsVanModel = require("../models/newsVanModel");
 
 const newControllers ={
     getAllNews: async(req,res)=>{
