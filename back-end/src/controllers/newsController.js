@@ -67,49 +67,6 @@ const newControllers ={
         }
     },
 
-    // createNewsAnh: async(req,res) =>{
-    //     try {    
-    //         const news = await new newsAnhModel({   
-    //             image: req.body.image,
-    //             content: req.body.content,
-    //             title: req.body.title,
-    //         });
-    //         const saveNews = await news.save();
-    //         res.status(200).json(saveNews)
-            
-    //     } catch (error) {
-    //         res.status(400).json(error)
-    //     }
-    // },
-    // createNewsToan: async(req,res) =>{
-    //     try {    
-    //         const news = await new newsToanModel({   
-    //             image: req.body.image,
-    //             content: req.body.content,
-    //             title: req.body.title,
-    //         });
-    //         const saveNews = await news.save();
-    //         res.status(200).json(saveNews)
-            
-    //     } catch (error) {
-    //         res.status(400).json(error)
-    //     }
-    // },
-    // createNewsVan: async(req,res) =>{
-    //     try {    
-    //         const news = await new newsVanModel({   
-    //             image: req.body.image,
-    //             content: req.body.content,
-    //             title: req.body.title,
-    //         });
-    //         const saveNews = await news.save();
-    //         res.status(200).json(saveNews)
-            
-    //     } catch (error) {
-    //         res.status(400).json(error)
-    //     }
-    // },
-
     deleteNews: async(req,res) =>{
         try {
             const delNews = await newsModel.findByIdAndDelete(req.params.id);
