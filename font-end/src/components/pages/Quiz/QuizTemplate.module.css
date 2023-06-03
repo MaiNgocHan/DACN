@@ -1,6 +1,7 @@
 .countTime {
     z-index: 1;
     position: fixed;
-    top: 125px;
+    top: 105px;
     right: 0px;
+    margin-right: 130px;
 }

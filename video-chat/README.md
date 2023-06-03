@@ -14,9 +14,9 @@ This app is build using NodeJS, Socket.io, and Peerjs(WebRTC)
 
 1. Clone this repository in your local system.
 2. Open the command prompt from your project directory and run the command `npm install`.
-3. Open the command prompt from your project directory and run the command `npm start`.
+3. Open the command prompt from your project directory and run the command `npm start`.192.168.1.3
 4. Go to your browser and type `http://127.0.0.1:3030/` in the address bar.
-5. Hurray! That's it.
+5. Hurray! That's it.http://192.168.1.3:3030/
 
 ### ToDo
 
