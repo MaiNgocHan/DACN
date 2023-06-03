@@ -70,64 +70,64 @@ server.listen(process.env.PORT || 3030);
 
 
 
-// io.on("connection", (socket) => {
-//   socket.on("join-room", (roomId, userId, userName) => {
-//     socket.join(roomId);
-//     setTimeout(() => {
-//       socket.to(roomId).broadcast.emit("user-connected", userId);
-//     }, 1000);
-//     socket.on("message", (message) => {
-//       io.to(roomId).emit("message", message, userName);
-//     });
-//   });
-// });
-
-
-socket.on("file", (message) => {
-  const fileData = message.data;
-  const fileName = message.name;
-
-  // Tạo file trên Google Drive
-  drive.files.create(
-    {
-      resource: {
-        name: fileName,
-        mimeType: "application/octet-stream",
-      },
-      media: {
-        mimeType: "application/octet-stream",
-        body: Buffer.from(fileData.split(",")[1], "base64"),
-      },
-    },
-    (err, res) => {
-      if (err) {
-        console.error("Lỗi khi tạo tệp trên Google Drive:", err);
-        return;
-      }
-
-      // Lấy URL công khai của tệp
-      const fileId = res.data.id;
-      drive.files.get(
-        {
-          fileId: fileId,
-          fields: "webViewLink",
-        },
-        (err, res) => {
-          if (err) {
-            console.error("Lỗi khi lấy URL tệp từ Google Drive:", err);
-            return;
-          }
-
-          // Gửi URL công khai của tệp cho tất cả các máy khác trong phòng
-          const fileUrl = res.data.webViewLink;
-          const fileMessage = {
-            type: "file",
-            name: fileName,
-            url: fileUrl,
-          };
-          io.to(roomId).emit("file", fileMessage);
-        }
-      );
-    }
-  );
+io.on("connection", (socket) => {
+  socket.on("join-room", (roomId, userId, userName) => {
+    socket.join(roomId);
+    setTimeout(() => {
+      socket.to(roomId).broadcast.emit("user-connected", userId);
+    }, 1000);
+    socket.on("message", (message) => {
+      io.to(roomId).emit("message", message, userName);
+    });
+  });
 });
+
+
+// socket.on("file", (message) => {
+//   const fileData = message.data;
+//   const fileName = message.name;
+
+//   // Tạo file trên Google Drive
+//   drive.files.create(
+//     {
+//       resource: {
+//         name: fileName,
+//         mimeType: "application/octet-stream",
+//       },
+//       media: {
+//         mimeType: "application/octet-stream",
+//         body: Buffer.from(fileData.split(",")[1], "base64"),
+//       },
+//     },
+//     (err, res) => {
+//       if (err) {
+//         console.error("Lỗi khi tạo tệp trên Google Drive:", err);
+//         return;
+//       }
+
+//       // Lấy URL công khai của tệp
+//       const fileId = res.data.id;
+//       drive.files.get(
+//         {
+//           fileId: fileId,
+//           fields: "webViewLink",
+//         },
+//         (err, res) => {
+//           if (err) {
+//             console.error("Lỗi khi lấy URL tệp từ Google Drive:", err);
+//             return;
+//           }
+
+//           // Gửi URL công khai của tệp cho tất cả các máy khác trong phòng
+//           const fileUrl = res.data.webViewLink;
+//           const fileMessage = {
+//             type: "file",
+//             name: fileName,
+//             url: fileUrl,
+//           };
+//           io.to(roomId).emit("file", fileMessage);
+//         }
+//       );
+//     }
+//   );
+// });

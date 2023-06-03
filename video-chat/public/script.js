@@ -299,154 +299,78 @@ var sendButton = document.getElementById("send");
       menu.style.display = "none";
     }
   });
+
+  //Xử lý sự kiện "message"
   socket.on("message", (message, userName) => {
-    if (message.type === "file") {
-      const fileMessage = document.createElement("p");
-      fileMessage.innerHTML = `<strong>${userName}</strong> đã gửi một tệp: <a href="${message.url}" target="_blank">${message.name}</a>`;
-      document.getElementById("messages").appendChild(fileMessage);
-    } else {
-      // Xử lý thông điệp văn bản thông thường
-    }
+    displayMessage(message, userName);
   });
+  
+  // Hiển thị tin nhắn trong phần messages
+  function displayMessage(message, userName) {
+    const messagesContainer = document.getElementById("messages");
+    const messageElement = document.createElement("div");
+    messageElement.classList.add("message");
+  
+    // const userSpan = document.createElement("span");
+    // userSpan.innerHTML = `<b><i class="far fa-user-circle"></i> <span>${userName === user ? "me" : userName}</span></b>`;
+  
+    if (message.type === "file") {
+      const fileNameElement = document.createElement("p");
+      fileNameElement.textContent = `File: ${message.fileName}`;
+  
+      const downloadLink = document.createElement("a");
+      downloadLink.href = message.data;
+      downloadLink.download = message.fileName;
+      downloadLink.textContent = "Tải xuống";
+  
+      // messageElement.appendChild(userSpan);
+      messageElement.appendChild(fileNameElement);
+      messageElement.appendChild(downloadLink);
+    }
+  
+    messagesContainer.appendChild(messageElement);
+  }
+  
+  // Sự kiện khi chọn file
   function selectFile() {
-    const fileInput = document.createElement("input");
-    fileInput.type = "file";
-    fileInput.accept = "*";
-    fileInput.addEventListener("change", handleFileSelect);
-    fileInput.click();
-  }
+    const input = document.createElement('input');
+    input.type = 'file';
   
-  function handleFileSelect(event) {
-    const file = event.target.files[0];
-    const reader = new FileReader();
+    // Xử lý sự kiện khi chọn file
+    input.addEventListener('change', (event) => {
+      const file = event.target.files[0];
+      const reader = new FileReader();
   
-    reader.onload = function (event) {
-      const fileData = event.target.result;
-      const fileName = file.name;
-      const message = {
-        type: "file",
-        name: fileName,
-        data: fileData,
+      // Xử lý sự kiện khi đọc file hoàn tất
+      reader.onload = (e) => {
+        const fileData = e.target.result;
+  
+        // Gửi thông điệp chứa file đến server
+        const message = {
+          type: 'file',
+          fileName: file.name,
+          data: fileData,
+        };
+        socket.emit('message', message, user);
+        // displayMessage(message, user);
       };
-      socket.emit("file", message);
-    };
   
-    reader.readAsDataURL(file);
+      // Đọc file
+      reader.readAsDataURL(file);
+    });
+  
+    // Mở hộp thoại chọn file
+    input.click();
   }
-
-// Thêm đoạn mã xác thực Google Drive API
-// const CLIENT_ID = "305905592623-2a6gm7u5naoi6pdhhsium5fs4nha1p5a.apps.googleusercontent.com";
-// const API_KEY = "AIzaSyDGaqk09knaCZUAw1bk5FWfdbCA-NUUcmg";
-// const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
-// const SCOPES = "https://www.googleapis.com/auth/drive.file";
-
-// // Khởi tạo đối tượng GoogleAuth
-// let gapiAuth;
-
-// // Tải script của Google API Client
-// function loadGoogleAPI() {
-//   gapi.load('client:auth2', initGoogleAPI);
-// }
-
-// // Khởi tạo Google API Client và xác thực
-// function initGoogleAPI() {
-//   gapi.client.init({
-//     apiKey: API_KEY,
-//     clientId: CLIENT_ID,
-//     discoveryDocs: DISCOVERY_DOCS,
-//     scope: SCOPES
-//   }).then(() => {
-//     gapiAuth = gapi.auth2.getAuthInstance();
-//     gapiAuth.isSignedIn.listen(updateSigninStatus);
-//     updateSigninStatus(gapiAuth.isSignedIn.get());
-//   }).catch((error) => {
-//     // Xử lý lỗi khởi tạo Google API
-//     console.error('Error initializing Google API:', error);
-//   });
-// }
-
-// // Xác thực người dùng với tài khoản Google
-// function signInGoogle() {
-//   gapiAuth.signIn();
-// }
-
-// // Cập nhật trạng thái xác thực
-// function updateSigninStatus(isSignedIn) {
-//   if (isSignedIn) {
-//     // Xác thực thành công, cho phép người dùng chọn file
-//     selectFile();
-//   }
-// }
-
-// // Xử lý sự kiện khi chọn file
-// function selectFile() {
-//   const input = document.createElement('input');
-//   input.type = 'file';
-
-//   // Xử lý sự kiện khi chọn file
-//   input.addEventListener('change', (event) => {
-//     const file = event.target.files[0];
-//     const reader = new FileReader();
-//     // Xử lý sự kiện khi đọc file hoàn tất
-//     reader.onload = (e) => {
-//       const fileData = e.target.result;
-
-//       // Gửi thông điệp chứa file đến server
-//       const message = {
-//         type: 'file',
-//         fileName: file.name,
-//         data: fileData,
-//       };
-      
-//       // Lưu trữ file trên Google Drive
-//       uploadFileToDrive(file, message);
-
-//       socket.emit('message', message, user);
-//       displayMessage(message, user);
-//     };
-
-//     // Đọc file
-//     reader.readAsDataURL(file);
-//   });
-
-//   // Mở hộp thoại chọn file
-//   input.click();
-// }
-
-// // Tải lên file lên Google Drive
-// function uploadFileToDrive(file, message) {
-//   const metadata = {
-//     name: file.name,
-//     mimeType: file.type
-// };
-
-// const formData = new FormData();
-// formData.append('metadata', new Blob([JSON.stringify(metadata)], { type: 'application/json' }));
-// formData.append('file', file);
-
-// const accessToken = gapiAuth.currentUser.get().getAuthResponse().access_token;
-
-// // Gửi yêu cầu tải lên tệp lên Google Drive
-// fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart', {
-//   method: 'POST',
-//   headers: {
-//     Authorization: `Bearer ${accessToken}`,
-//   },
-//   body: formData
-// }).then(response => response.json())
-// .then(data => {
-//   // Lấy thông tin về tệp đã tải lên và cung cấp liên kết tải xuống
-//   const fileId = data.id;
-//   const downloadLink = `https://drive.google.com/uc?export=download&id=${fileId}`;
-//     // Cập nhật liên kết tải xuống trong thông điệp
-//     message.data = downloadLink;
-
-//     // Gửi thông điệp chứa liên kết tải xuống đến tất cả người dùng trong phòng
-//     io.to(roomId).emit("message", message, userName);
-// })
-// .catch(error => {
-//   console.error('Error uploading file to Google Drive:', error);
-// });
-// // Load Google API Client
-// }
-// loadGoogleAPI();
+  //đây là đoạn server.js
+  io.on("connection", (socket) => {
+    socket.on("join-room", (roomId, userId, userName) => {
+      socket.join(roomId);
+      setTimeout(() => {
+        socket.to(roomId).broadcast.emit("user-connected", userId);
+      }, 1000);
+      socket.on("message", (message) => {
+        io.to(roomId).emit("message", message, userName);
+      });
+    });
+  });
