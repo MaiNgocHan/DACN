@@ -26,8 +26,8 @@ showChat.addEventListener("click", () => {
 
 const user = prompt("Vui lòng nhập tên của bạn");
 
-var peer = new Peer({
-  host: '127.0.0.1',
+const peer = new Peer({
+  host: '192.168.99.139',
   port: 3030,
   path: '/peerjs',
   config: {
@@ -198,17 +198,23 @@ function startDrawing(event) {
   if (isErasing || event.target.id === "clearButton") return;
 
   isDrawing = true;
-  const x = event.clientX - canvas.getBoundingClientRect().left;
-  const y = event.clientY - canvas.getBoundingClientRect().top;
+  const rect = canvas.getBoundingClientRect();
+  const x = event.pageX - rect.left;
+  const y = event.pageY - rect.top;
+  // const x = event.clientX - canvas.getBoundingClientRect().left;
+  // const y = event.clientY - canvas.getBoundingClientRect().top;
   ctx.beginPath();
   ctx.moveTo(x, y);
 }
 
 function draw(event) {
   if (!isDrawing || isErasing) return;
-
-  const x = event.clientX - canvas.getBoundingClientRect().left;
-  const y = event.clientY - canvas.getBoundingClientRect().top;
+  
+  const rect = canvas.getBoundingClientRect();
+  const x = event.pageX - rect.left;
+  const y = event.pageY - rect.top;
+  // const x = event.clientX - canvas.getBoundingClientRect().left;
+  // const y = event.clientY - canvas.getBoundingClientRect().top;
   ctx.lineWidth = isErasing ? 8 : 2;
   ctx.lineCap = "round";
   ctx.strokeStyle = isErasing ? "#ffffff" : "#000000";

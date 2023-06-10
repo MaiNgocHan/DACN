@@ -43,11 +43,13 @@ io.on("connection", (socket) => {
     socket.on("message", (message) => {
       io.to(roomId).emit("createMessage", message, userName);
     });
+    socket.on("message", (message) => {
+      io.to(roomId).emit("message", message, userName);
+    });
   });
 });
 
 server.listen(process.env.PORT || 3030);
-
 
 // gửi file
 // Thay đổi dòng emit trong sự kiện "message"
@@ -70,17 +72,7 @@ server.listen(process.env.PORT || 3030);
 
 
 
-io.on("connection", (socket) => {
-  socket.on("join-room", (roomId, userId, userName) => {
-    socket.join(roomId);
-    setTimeout(() => {
-      socket.to(roomId).broadcast.emit("user-connected", userId);
-    }, 1000);
-    socket.on("message", (message) => {
-      io.to(roomId).emit("message", message, userName);
-    });
-  });
-});
+
 
 
 // socket.on("file", (message) => {

@@ -56,7 +56,7 @@ const QuizTemplate = (props) => {
             <div className="my-3 px-5">
                 <h1> Bài kiểm tra</h1>
                 <div className={classes.countTime}>
-                    <CountdownTimer targetMinutes={1} timeUp={timeUp}/>
+                    <CountdownTimer targetMinutes={2} timeUp={timeUp}/>
                 </div>
                 <h3>{testQuestions.title}</h3>
                 <h5 className="mb-5">{testQuestions.content}</h5>
