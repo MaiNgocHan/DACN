@@ -59,9 +59,9 @@ const Admin = () => {
                 <thead>
                     <tr>
                         <th colSpan="1">STT</th>
+                        <th colSpan="2">loại</th>
                         <th colSpan="4">Tiêu đề</th>
                         <th colSpan="2">Hình ảnh</th>
-                        <th colSpan="2">Ngày đăng</th>
                         <th colSpan="3">Xóa bài viết</th>
                     </tr>
                 </thead>
@@ -69,11 +69,12 @@ const Admin = () => {
                     {newsList.slice((page-1)*8, (page-1)*8+8).map((news, index) => {
                         return (<tr key={index}>
                             <td colSpan="1">{index+1}</td>
+                            <td colSpan="2">{news.type}</td>
                             <td colSpan="4">{news.title}</td>
                             <td colSpan="2">
                                 <img className={classes.image} src={news.image} alt="news" width='100'></img>
                             </td>
-                            <td colSpan="2">{Date(news.createdAt).slice(0, 24)}</td>
+                            
                             <td colSpan="3"><Button variant="outline-danger" onClick={() => deletedNewsHandler(news._id)}>Xóa bài viết</Button></td>
                         </tr>)
                     })}

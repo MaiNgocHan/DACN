@@ -4,6 +4,7 @@
     border-radius: 10px;
     margin: 15px 0;
     /* margin: 15px 0; */
+    height: 250px;
 }
 .card:hover {
     padding: 15px;
@@ -28,7 +29,7 @@
 .image{
     border-radius: 5px;
     max-width: 100%;
-    height: auto;
+    height: 100px;
     margin: 0 auto; /* căn giữa ảnh */
 }
 .word_wrap {
@@ -43,6 +44,8 @@
     font-size: 19px;
     color: black;
     margin: 10px 0;
+    font-size: 15px;
+    height: 100px;
 }
 .word_wrap_content {
     max-width: 100%;
@@ -55,4 +58,5 @@
     font-weight: 400;
     color: black;
     margin: 10px 0;
+    
 }

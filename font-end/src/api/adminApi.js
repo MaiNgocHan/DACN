@@ -70,6 +70,7 @@ export const createNews = async (news, token) => {
         'token': token,
       },
       data: {
+        type: news.type,
         title: news.title,
         image: news.image,
         content: news.content
