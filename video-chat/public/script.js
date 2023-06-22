@@ -27,7 +27,7 @@ showChat.addEventListener("click", () => {
 const user = prompt("Vui lòng nhập tên của bạn");
 
 const peer = new Peer({
-  host: '192.168.99.139',
+  host: '127.0.0.1',
   port: 3030,
   path: '/peerjs',
   config: {

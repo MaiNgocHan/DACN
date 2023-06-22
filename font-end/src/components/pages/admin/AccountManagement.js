@@ -52,7 +52,7 @@ const AccountManagement = () => {
 
     return (
         <Layout props={{type: "admin"}}>
-            <h1 className="my-4">Danh sách bài viết</h1>
+            <h1 className="my-4">Danh sách tài khoản</h1>
             <Table hover className="table table-bordered border-secondary" style={{tableLayout: "fixed"}}>
                 <thead>
                     <tr>
